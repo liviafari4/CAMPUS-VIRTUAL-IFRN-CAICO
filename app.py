@@ -12,5 +12,10 @@ def home():
 def sobre():
     return render_template('sobre.html')
 
+# rota dos cursos
+@app.route('/cursos')
+def cursos():
+    return render_template('cursos.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

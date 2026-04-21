@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="secao-cursos">
+
+    <h2>Nossos Cursos</h2>
+    <p class="subtitulo">
+        Conheça cursos técnicos do IFRN Campus Caicó.
+    </p>
+
+    <div class="cards">
+
+        <!-- Infoweb -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/info.jpg') }}">
+            <div class="card-conteudo">
+                <h3>Informática para Internet</h3>
+                <p><strong>Carga horária:</strong> 3.995h</p>
+                <p>Programação, banco de dados, redes e desenvolvimento web.</p>
+                <p><strong>Atuação:</strong> empresas de tecnologia, startups e marketing digital.</p>
+            </div>
+        </div>
+
+        <!-- Têxtil -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/textil.jpg') }}">
+            <div class="card-conteudo">
+                <h3>Têxtil</h3>
+                <p><strong>Carga horária:</strong> 4.000h</p>
+                <p>Processos têxteis, química e produção industrial.</p>
+                <p><strong>Atuação:</strong> indústrias têxteis e controle de qualidade.</p>
+            </div>
+        </div>
+
+        <!-- Vestuário -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/vestuario.jpg') }}">
+            <div class="card-conteudo">
+                <h3>Vestuário</h3>
+                <p><strong>Carga horária:</strong> 4.070h</p>
+                <p>Design de moda, corte, costura e produção.</p>
+                <p><strong>Atuação:</strong> confecções, ateliês e produção de moda.</p>
+            </div>
+        </div>
+
+        <!-- Eletrotécnica -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/eletro.jpg') }}">
+            <div class="card-conteudo">
+                <h3>Eletrotécnica</h3>
+                <p><strong>Carga horária:</strong> 4.100h</p>
+                <p>Eletricidade, eletrônica e automação.</p>
+                <p><strong>Atuação:</strong> indústrias, energia e construção civil.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
