@@ -250,3 +250,17 @@
     color: #fff;
     text-decoration: underline;
 }
+
+.btn-voltar {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 15px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn-voltar:hover {
+    background-color: #2e7d32;
+}
