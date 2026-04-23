@@ -1,15 +1,25 @@
+html, body {
+    width: 100%;
+    overflow-x: hidden; 
+}
+
+body {
+    margin: 0;
+}
+
 .topo {
     position: absolute;
-    top: 30px;
+    top: 20px;
     width: 100%;
-    padding: 20px 60px;
-
+    padding: 15px 60px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     color: white;
     z-index: 10;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
 .logo-area {
@@ -96,12 +106,15 @@
     color: #1b5e20;
     padding: 8px 20px;
     border-radius: 30px;
+    font-style: italic;
 }
 
 .destaque-borda {
-    border: 2px solid white;
-    padding: 5px 15px;
-    border-radius: 50px;
+    background: url("../img/rabisco.png") no-repeat center;
+    background-size: 100% 100%;
+    padding: 24px 40px;
+    display: inline-block;
+    z-index: 10;
 }
 
 
@@ -123,7 +136,7 @@
 }
 
 .conteudo h2 {
-    color: #2e7d32; /* usem sempre esse verde - verde do projeto */
+    color: #2f9e41; /* usem sempre esse verde - verde do projeto */
     margin-bottom: 20px;
     font-size: 28px;
 }
@@ -142,13 +155,13 @@
 
 .secao-cursos h2 {
     color: white;
-    background-color: #2e7d32;
+    background-color: #2f9e41;
     font-size: 32px;
     margin-bottom: 10px;
 }
 
 .subtitulo {
-    color: #2e7d32;
+    color: #2f9e41;
     margin-bottom: 50px;
 }
 
@@ -180,7 +193,7 @@
 }
 
 .card h3 {
-    color: #2e7d32;
+    color: #2f9e41;
     margin-bottom: 10px;
 }
 
@@ -194,7 +207,7 @@
 .btn {
     display: inline-block;
     padding: 8px 15px;
-    background-color: #2e7d32;
+    background-color: #2f9e41;
     color: white;
     text-decoration: none;
     border-radius: 20px;
@@ -219,12 +232,12 @@
 }
 
 .mapa h2 {
-    color: #2e7d32;
+    color: #2f9e41;
     margin-bottom: 20px;
 }
 
 .rodape {
-    background-color: #2e7d32;
+    background-color: #2f9e41;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -255,12 +268,12 @@
     display: inline-block;
     margin: 20px;
     padding: 10px 15px;
-    background-color: #2e7d32;
+    background-color: #2f9e41;
     color: white;
     text-decoration: none;
     border-radius: 8px;
 }
 
 .btn-voltar:hover {
-    background-color: #2e7d32;
+    background-color: #2f9e41;
 }
