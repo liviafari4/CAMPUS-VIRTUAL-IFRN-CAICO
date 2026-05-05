@@ -1,11 +1,51 @@
 {% extends 'base.html' %}
 
-{% block conteudo %}
+{% block content %}
 
-<h1>sobre o campus</h1>
+<div class="conteudo">
 
-<p>o ifrn campus caicó tem papel importante na formação dos alunos</p>
+    <h2>Sobre a Equipe</h2>
 
-<p>aqui voce encontra ensino tecnico e estrutura de qualidade</p>
+    <p>
+        Este projeto foi desenvolvido por alunas do IFRN – Campus Caicó,
+        com o objetivo de criar um ambiente virtual simples e funcional.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/user.png') }}" alt="Integrante 1">
+            <div class="card-conteudo">
+                <h3>Evelyn Ester</h3>
+                <p>fez tal coisa</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/user.png') }}" alt="Integrante 2">
+            <div class="card-conteudo">
+                <h3>Livia Vitória</h3>
+                <p>fez tal coisa</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/user.png') }}" alt="Integrante 3">
+            <div class="card-conteudo">
+                <h3>Marianne Júlia</h3>
+                <p>fez tal coisa</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/equipe.jpg') }}" alt="Equipe">
+            <div class="card-conteudo">
+                <h3>Nossa Equipe</h3>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

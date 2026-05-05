@@ -17,5 +17,9 @@ def sobre():
 def cursos():
     return render_template('cursos.html')
 
+@app.route('/campus')
+def campus():
+    return render_template('campus.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
