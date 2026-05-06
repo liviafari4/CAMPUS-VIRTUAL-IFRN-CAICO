@@ -263,4 +263,24 @@
 
 .btn-voltar:hover {
     background-color: #2e7d32;
+
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.novo {
+    background: #2e7d32;
+}
+
+.popular {
+    background: #2e7d32;
+
 }
