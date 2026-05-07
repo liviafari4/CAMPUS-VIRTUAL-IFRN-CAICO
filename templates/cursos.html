@@ -7,9 +7,6 @@
 
 </head>
 <body>
-<a href="/" class="btn-voltar">← Voltar para início</a>
-
-
 
     <style>
         .card {
@@ -30,33 +27,11 @@
             margin-bottom: 5px;
         }
 
-        .novo { background: green; }
-
-        .popular { background: orange; }
-
-        .popular { background: green; }
-
-
-        #busca {
-            padding: 10px;
-            width: 100%;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-
-        .favorito {
-            margin-top: 10px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-
         .btn-vermais {
             display: inline-block;
             margin-top: 10px;
             padding: 8px 15px;
-            background-color: green;
+            background-color: #2e7d32;
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -73,12 +48,9 @@
 <body>
 <a href="/" class="btn-voltar">← Voltar para início</a>
 
-
 <div class="secao-cursos">
 
 <div class="secao-cursos">
-
-
     <h2>Nossos Cursos</h2>
     <p class="subtitulo">
         Conheça cursos técnicos do IFRN Campus Caicó.
@@ -86,77 +58,26 @@
 
 
     <div class="cards">
-
-    
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/info.jpg') }}">
-            <div class="card-conteudo">
-
-    <input type="text" id="busca" placeholder="Buscar cursos..." onkeyup="filtrarCursos()">
-
-    <div class="cards">
-
-
-        
-        <div class="card curso">
-            <img src="{{ url_for('static', filename='img/info.jpg') }}">
-            <div class="card-conteudo">
-                <span class="tag popular">Popular</span>
-
         <div class="card curso">
             <img src="{{ url_for('static', filename='img/Info.jpg') }}">
             <div class="card-conteudo">
-                <span class="tag novo">Novo</span>
 
                 <h3>Informática para Internet</h3>
                 <p><strong>Carga horária:</strong> 3.995h</p>
                 <p>Programação, banco de dados, redes e desenvolvimento web.</p>
                 <p><strong>Atuação:</strong> empresas de tecnologia, startups e marketing digital.</p>
-
-                <!-- NOVO -->
-                <button class="favorito" onclick="favoritar()"> Favoritar</button>
-
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/textil.jpg') }}">
-            <div class="card-conteudo">
-
-                <button class="favorito" onclick="favoritar()">Favoritar</button>
                 <a href="/curso/informatica" class="btn-vermais">Ver mais</a>
             </div>
         </div>
 
-
         <div class="card curso">
             <img src="{{ url_for('static', filename='img/textil.jpg') }}">
             <div class="card-conteudo">
-                <span class="tag novo">Novo</span>
 
                 <h3>Têxtil</h3>
                 <p><strong>Carga horária:</strong> 4.000h</p>
                 <p>Processos têxteis, química e produção industrial.</p>
                 <p><strong>Atuação:</strong> indústrias têxteis e controle de qualidade.</p>
-
-
-                <!-- NOVO -->
-                <button class="favorito" onclick="favoritar()"> Favoritar</button>
-
-            </div>
-        </div>
-
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/vestuario.jpg') }}">
-            <div class="card-conteudo">
-
-        <div class="card curso">
-            <img src="{{ url_for('static', filename='img/vestuario.jpg') }}">
-            <div class="card-conteudo">
-                <span class="tag popular">Popular</span>
-
-                <button class="favorito" onclick="favoritar()">Favoritar</button>
                 <a href="/curso/textil" class="btn-vermais">Ver mais</a>
             </div>
         </div>
@@ -164,47 +85,25 @@
         <div class="card curso">
             <img src="{{ url_for('static', filename='img/vestuario.jpg') }}">
             <div class="card-conteudo">
-                <span class="tag novo">Novo</span>
 
                 <h3>Vestuário</h3>
                 <p><strong>Carga horária:</strong> 4.070h</p>
                 <p>Design de moda, corte, costura e produção.</p>
                 <p><strong>Atuação:</strong> confecções, ateliês e produção de moda.</p>
-
-                <!-- NOVO -->
-                <button class="favorito" onclick="favoritar()"> Favoritar</button>
-
-            </div>
-        </div>
-
-    
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/eletro.jpg') }}">
-            <div class="card-conteudo">
-
-                <button class="favorito" onclick="favoritar()">Favoritar</button>
                 <a href="/curso/vestuario" class="btn-vermais">Ver mais</a>
             </div>
         </div>
 
-
         <div class="card curso">
             <img src="{{ url_for('static', filename='img/eletro.jpg') }}">
             <div class="card-conteudo">
-                <span class="tag novo">Novo</span>
 
                 <h3>Eletrotécnica</h3>
                 <p><strong>Carga horária:</strong> 4.100h</p>
                 <p>Eletricidade, eletrônica e automação.</p>
                 <p><strong>Atuação:</strong> indústrias, energia e construção civil.</p>
 
-                <!-- NOVO -->
-                <button class="favorito" onclick="favoritar()"> Favoritar</button>
-
-
-                <button class="favorito" onclick="favoritar()">Favoritar</button>
-                <a href="/curso/eletro" class="btn-vermais">Ver mais</a>
+                <a href="/curso/eletrotecnica" class="btn-vermais">Ver mais</a>
 
             </div>
         </div>
