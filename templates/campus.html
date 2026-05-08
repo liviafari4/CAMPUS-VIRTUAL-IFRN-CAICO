@@ -1,17 +1,462 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/campus.css') }}">
+
 
 <a href="/" class="btn-voltar">← Voltar para início</a>
 
-<div class="conteudo">
 
-    <h1>Sobre o Campus</h1>
+<section class="hero">
 
-    <p>O IFRN Campus Caicó tem papel importante na formação dos alunos.</p>
 
-    <p>Aqui você encontra ensino técnico e estrutura de qualidade.</p>
+    <div class="overlay"></div>
 
-</div>
+
+    <div class="hero-content">
+        <h1>Conheça o IFRN Campus Caicó</h1>
+
+
+        <p>
+            Explore virtualmente os espaços, ambientes e experiências
+            do nosso campus.
+        </p>
+
+
+        <a href="#espacos" class="btn">
+            Explorar Campus
+        </a>
+    </div>
+
+
+</section>
+
+
+<!-- INTRODUÇÃO -->
+<section class="intro">
+
+
+    <div class="intro-text">
+
+
+        <h2>Campus Virtual</h2>
+
+
+        <p>
+            O IFRN Campus Caicó oferece ensino de qualidade,
+            estrutura moderna e um ambiente acolhedor para
+            estudantes de toda a região.
+        </p>
+
+
+        <p>
+            Nesta página, você poderá conhecer os principais
+            espaços do campus através de fotos, vídeos e uma
+            experiência visual interativa.
+        </p>
+
+
+    </div>
+
+
+    <div class="video-diretor">
+
+
+        <iframe
+            src=""
+            title="Vídeo do Diretor"
+            allowfullscreen>
+        </iframe>
+
+
+        <span>Mensagem do Diretor Geral Ricardo</span>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ESPAÇOS -->
+<section class="espacos" id="espacos">
+
+
+    <div class="titulo-section">
+
+
+        <h2>Conheça Nossos Espaços</h2>
+
+
+        <p>
+            Ambientes preparados para ensino,
+            inovação e convivência.
+        </p>
+
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <!-- CARD -->
+        <div class="card">
+
+
+            <img src="{{ url_for('static', filename='img/sala.jpg') }}" alt="">
+
+
+            <div class="card-content">
+
+
+                <h3>Salas de Aula</h3>
+
+
+                <p>
+                    Ambientes modernos e climatizados.
+                </p>
+
+
+                <button>Ver mais</button>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CARD -->
+        <div class="card">
+
+
+            <img src="{{ url_for('static', filename='img/biblioteca.jpg') }}" alt="">
+
+
+            <div class="card-content">
+
+
+                <h3>Biblioteca</h3>
+
+
+                <p>
+                    Espaço para estudo, leitura e pesquisa.
+                </p>
+
+
+                <button>Ver mais</button>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CARD -->
+        <div class="card">
+
+
+            <img src="{{ url_for('static', filename='img/lab.jpg') }}" alt="">
+
+
+            <div class="card-content">
+
+
+                <h3>Laboratórios</h3>
+
+
+                <p>
+                    Estrutura tecnológica para aprendizagem prática.
+                </p>
+
+
+                <button>Ver mais</button>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CARD -->
+        <div class="card">
+
+
+            <img src="{{ url_for('static', filename='img/auditorio.jpg') }}" alt="">
+
+
+            <div class="card-content">
+
+
+                <h3>Auditório</h3>
+
+
+                <p>
+                    Eventos, palestras e apresentações acadêmicas.
+                </p>
+
+
+                <button>Ver mais</button>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CARD -->
+        <div class="card">
+
+
+            <img src="{{ url_for('static', filename='img/convivencia.jpg') }}" alt="">
+
+
+            <div class="card-content">
+
+
+                <h3>Área de Convivência</h3>
+
+
+                <p>
+                    Espaço social para alunos e servidores.
+                </p>
+
+
+                <button>Ver mais</button>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CARD -->
+        <div class="card">
+
+
+            <img src="{{ url_for('static', filename='img/quadra.jpg') }}" alt="">
+
+
+            <div class="card-content">
+
+
+                <h3>Quadra</h3>
+
+
+                <p>
+                    Área esportiva e atividades recreativas.
+                </p>
+
+
+                <button>Ver mais</button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- GALERIA -->
+<section class="galeria">
+
+
+    <div class="titulo-section">
+
+
+        <h2>Galeria do Campus</h2>
+
+
+    </div>
+
+
+    <div class="grid-galeria">
+
+
+        <img src="{{ url_for('static', filename='img/1.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/2.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/3.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/4.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/5.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/6.jpg') }}" alt="">
+
+
+    </div>
+
+
+</section>
+
+
+<!-- VIDEO -->
+<section class="video-campus">
+
+
+    <div class="titulo-section">
+
+
+        <h2>Vídeo Institucional</h2>
+
+
+    </div>
+
+
+    <iframe
+        src=""
+        title="Vídeo Campus"
+        allowfullscreen>
+    </iframe>
+
+
+</section>
+
+
+<!-- DESTAQUES -->
+<section class="destaques">
+
+
+    <div class="box">
+        <h3>Estrutura Moderna</h3>
+    </div>
+
+
+    <div class="box">
+        <h3>Ensino de Qualidade</h3>
+    </div>
+
+
+    <div class="box">
+        <h3>Tecnologia</h3>
+    </div>
+
+
+    <div class="box">
+        <h3>Projetos e Eventos</h3>
+    </div>
+
+
+</section>
+
+
+<!-- VIDA NO CAMPUS -->
+<section class="vida-campus">
+
+
+    <div class="titulo-section">
+
+
+        <h2>Vida no Campus</h2>
+
+
+    </div>
+
+
+    <div class="vida-content">
+
+
+        <img src="{{ url_for('static', filename='img/alunos.jpg') }}" alt="">
+
+
+        <div class="texto">
+
+
+            <p>
+                O IFRN Caicó promove eventos acadêmicos,
+                projetos, feiras científicas e atividades
+                culturais que fazem parte da vida estudantil.
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+
+
+    <div class="titulo-section">
+
+
+        <h2>Depoimentos</h2>
+
+
+    </div>
+
+
+    <div class="depoimentos-grid">
+
+
+        <div class="dep-card">
+
+
+            <p>
+                “O IFRN mudou minha vida acadêmica.”
+            </p>
+
+
+            <span>Aluno do Campus</span>
+
+
+        </div>
+
+
+        <div class="dep-card">
+
+
+            <p>
+                “Estrutura incrível e professores excelentes.”
+            </p>
+
+
+            <span>Ex-aluna</span>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- FINAL -->
+<section class="final">
+
+
+    <h2>Venha conhecer o IFRN Campus Caicó</h2>
+
+
+    <p>
+        Educação, inovação e oportunidades em um só lugar.
+    </p>
+
+
+    <a href="/" class="btn">
+        Voltar ao Início
+    </a>
+
+
+</section>
+
 
 {% endblock %}
