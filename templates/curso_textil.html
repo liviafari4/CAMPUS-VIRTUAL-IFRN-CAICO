@@ -1,24 +1,128 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Têxtil</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<a href="/cursos">Voltar para cursos</a>
+{% block title %}Têxtil{% endblock %}
 
+{% block content %}
+
+<a href="/cursos" class="btn-voltar">← Voltar para cursos</a>
+
+<style>
+
+.pagina-curso{
+max-width:1100px;
+margin:30px auto;
+padding:20px;
+}
+
+.hero{
+background:
+linear-gradient(rgba(47,158,65,.85),rgba(47,158,65,.85)),
+url("{{ url_for('static', filename='img/textil.jpg') }}");
+
+background-size:cover;
+background-position:center;
+
+padding:90px 30px;
+border-radius:20px;
+text-align:center;
+color:white;
+}
+
+.hero h1{font-size:42px;}
+
+.bloco{
+background:white;
+padding:30px;
+margin-top:30px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.caixa{
+background:#f4f4f4;
+padding:20px;
+border-radius:12px;
+text-align:center;
+}
+
+iframe{
+width:100%;
+height:450px;
+border:none;
+border-radius:12px;
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.galeria img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:12px;
+}
+
+</style>
+
+<main class="pagina-curso">
+
+<section class="hero">
 <h1>Têxtil</h1>
+<p>Conheça laboratórios, práticas e experiências.</p>
+</section>
 
-<p><strong>Carga horária:</strong> 4.000h</p>
+<section class="bloco">
+
+<h2>Sobre</h2>
 
 <p>
-Curso focado em processos têxteis, produção industrial e controle de qualidade.
+Curso voltado para produção industrial e materiais têxteis.
 </p>
 
-<p>
-<strong>Área de atuação:</strong> indústrias têxteis, produção de tecidos e controle de qualidade.
-</p>
+<div class="info">
 
-</body>
-</html>
+<div class="caixa">4000h</div>
+
+<div class="caixa">Indústria</div>
+
+<div class="caixa">Produção têxtil</div>
+
+</div>
+
+</section>
+
+<section class="bloco">
+
+<h2>Vídeo</h2>
+
+<iframe
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
+
+</section>
+
+<section class="bloco">
+
+<div class="galeria">
+
+<img src="{{ url_for('static', filename='img/textil.jpg') }}">
+<img src="{{ url_for('static', filename='img/campus.jpg') }}">
+<img src="{{ url_for('static', filename='img/textil.jpg') }}">
+
+</div>
+
+</section>
+
+</main>
+
+{% endblock %}
