@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastrar Vaga{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastrar_vaga.css') }}">
+
+<a href="/vagas" class="btn-voltar">← Voltar para vagas</a>
+
+
+
+<div class="formulario">
+
+    <h1>Cadastrar Vaga</h1>
+
+    <form method="POST">
+
+        <label>Nome da empresa</label>
+        <input type="text" name="empresa" required>
+
+        <label>Título da vaga</label>
+        <input type="text" name="titulo" required>
+
+        <label>Descrição da vaga</label>
+        <textarea name="descricao" required></textarea>
+
+        <label>Requisitos</label>
+        <textarea name="requisitos" required></textarea>
+
+        <label>Contato da empresa</label>
+        <input type="text" name="contato" required>
+
+        <button type="submit">Cadastrar vaga</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

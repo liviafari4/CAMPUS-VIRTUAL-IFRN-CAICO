@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Enviar Currículo{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/enviar_curriculo.css') }}">
+
+<a href="/vagas" class="btn-voltar">← Voltar para vagas</a>
+
+
+<div class="formulario">
+
+    <h1>Enviar Currículo</h1>
+
+    <form method="POST">
+
+        <label>Nome do aluno</label>
+        <input type="text" name="nome" required>
+
+        <label>E-mail</label>
+        <input type="email" name="email" required>
+
+        <label>Curso</label>
+        <input type="text" name="curso" placeholder="Ex: Informática para Internet" required>
+
+        <label>Experiências, habilidades ou resumo do currículo</label>
+        <textarea name="experiencia" required></textarea>
+
+        <button type="submit">Enviar currículo</button>
+
+    </form>
+
+</div>
+
+{% endblock %}
