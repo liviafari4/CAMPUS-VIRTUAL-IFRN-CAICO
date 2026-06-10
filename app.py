@@ -85,6 +85,91 @@ def vagas():
 
     return render_template('vagas.html', vagas=vagas)
 
+@app.route('/vaga/<int:id>')
+def detalhes_vaga(id):
+
+    banco = conectar_banco()
+    cursor = banco.cursor()
+
+    cursor.execute(
+        'SELECT * FROM vagas WHERE id = ?',
+        (id,)
+    )
+
+    vaga = cursor.fetchone()
+
+    banco.close()
+
+    return render_template(
+        'detalhes_vaga.html',
+        vaga=vaga
+    )
+
+@app.route('/editar-vaga/<int:id>', methods=['GET', 'POST'])
+def editar_vaga(id):
+
+    banco = conectar_banco()
+    cursor = banco.cursor()
+
+    if request.method == 'POST':
+
+        empresa = request.form['empresa']
+        titulo = request.form['titulo']
+        descricao = request.form['descricao']
+        requisitos = request.form['requisitos']
+        contato = request.form['contato']
+
+        cursor.execute('''
+            UPDATE vagas
+            SET empresa = ?,
+                titulo = ?,
+                descricao = ?,
+                requisitos = ?,
+                contato = ?
+            WHERE id = ?
+        ''', (
+            empresa,
+            titulo,
+            descricao,
+            requisitos,
+            contato,
+            id
+        ))
+
+        banco.commit()
+        banco.close()
+
+        return redirect(url_for('vagas'))
+
+    cursor.execute(
+        'SELECT * FROM vagas WHERE id = ?',
+        (id,)
+    )
+
+    vaga = cursor.fetchone()
+
+    banco.close()
+
+    return render_template(
+        'editar_vaga.html',
+        vaga=vaga
+    )
+
+@app.route('/excluir-vaga/<int:id>')
+def excluir_vaga(id):
+
+    banco = conectar_banco()
+    cursor = banco.cursor()
+
+    cursor.execute(
+        'DELETE FROM vagas WHERE id = ?',
+        (id,)
+    )
+
+    banco.commit()
+    banco.close()
+
+    return redirect(url_for('vagas'))
 
 @app.route('/cadastrar-vaga', methods=['GET', 'POST'])
 def cadastrar_vaga():

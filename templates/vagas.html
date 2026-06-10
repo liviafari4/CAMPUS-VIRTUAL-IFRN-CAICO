@@ -4,20 +4,24 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/vagas.css') }}">
+<div class="pagina-vagas">
 
-<a href="/" class="btn-voltar">← Voltar para início</a>
-
-<main class="pagina-vagas">
+    <a href="/" class="btn-voltar">
+        ← Voltar para início
+    </a>
 
     <section class="hero-vagas">
+
         <h1>Anúncio de Vagas</h1>
 
         <p>
             Espaço para empresas cadastrarem oportunidades e alunos enviarem seus currículos.
         </p>
 
-        <a href="/cadastrar-vaga" class="btn-cadastrar">Cadastrar nova vaga</a>
+        <a href="/cadastrar-vaga" class="btn-cadastrar">
+            Cadastrar nova vaga
+        </a>
+
     </section>
 
     <section class="lista-vagas">
@@ -25,6 +29,7 @@
         {% for vaga in vagas %}
 
         <div class="vaga-card">
+
             <h2>{{ vaga[2] }}</h2>
 
             <p><strong>Empresa:</strong> {{ vaga[1] }}</p>
@@ -35,22 +40,32 @@
 
             <p><strong>Contato:</strong> {{ vaga[5] }}</p>
 
+            <a href="/vaga/{{ vaga[0] }}" class="btn-curriculo">
+                Ver detalhes
+            </a>
+
             <a href="/enviar-curriculo/{{ vaga[0] }}" class="btn-curriculo">
                 Enviar currículo
             </a>
+
         </div>
 
         {% else %}
 
         <div class="vaga-card">
+
             <h2>Nenhuma vaga cadastrada ainda</h2>
-            <p>Quando uma empresa cadastrar uma vaga, ela aparecerá aqui.</p>
+
+            <p>
+                Quando uma empresa cadastrar uma vaga, ela aparecerá aqui.
+            </p>
+
         </div>
 
         {% endfor %}
 
     </section>
 
-</main>
+</div>
 
 {% endblock %}

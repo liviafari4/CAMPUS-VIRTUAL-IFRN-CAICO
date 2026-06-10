@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalhes da Vaga{% endblock %}
+
+{% block content %}
+
+<a href="/vagas" class="btn-voltar">
+    ← Voltar para vagas
+</a>
+
+<section class="vaga-card detalhes-vaga">
+
+    <h1>{{ vaga[2] }}</h1>
+
+    <p>
+        <strong>Empresa:</strong>
+        {{ vaga[1] }}
+    </p>
+
+    <p>
+        <strong>Descrição:</strong>
+        {{ vaga[3] }}
+    </p>
+
+    <p>
+        <strong>Requisitos:</strong>
+        {{ vaga[4] }}
+    </p>
+
+    <p>
+        <strong>Contato:</strong>
+        {{ vaga[5] }}
+    </p>
+
+    <div class="acoes-vaga">
+
+        <a href="/enviar-curriculo/{{ vaga[0] }}"
+           class="btn-curriculo">
+
+            Enviar currículo
+
+        </a>
+
+        <a href="/editar-vaga/{{ vaga[0] }}"
+           class="btn-editar">
+
+            Editar vaga
+
+        </a>
+
+        <a href="/excluir-vaga/{{ vaga[0] }}"
+           class="btn-excluir"
+           onclick="return confirm('Tem certeza que deseja excluir esta vaga?')">
+
+            Excluir vaga
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
