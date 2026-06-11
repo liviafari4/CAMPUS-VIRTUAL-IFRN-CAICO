@@ -3,6 +3,7 @@
 {% block title %}Vagas de Estágio e Emprego{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/vagas.css') }}">
 
 <div class="pagina-vagas">
 
@@ -18,9 +19,23 @@
             Espaço para empresas cadastrarem oportunidades e alunos enviarem seus currículos.
         </p>
 
+        {% if session.get('empresa_id') %}
+
         <a href="/cadastrar-vaga" class="btn-cadastrar">
             Cadastrar nova vaga
         </a>
+
+        <a href="/logout" class="btn-cadastrar">
+            Sair
+        </a>
+
+        {% else %}
+
+        <a href="/login" class="btn-cadastrar">
+            Área da Empresa
+        </a>
+
+        {% endif %}
 
     </section>
 

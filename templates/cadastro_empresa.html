@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/empresas.css') }}">
+
+<div class="container-empresa">
+    <h1>Cadastrar Empresa</h1>
+
+    {% if erro %}
+
+        <div class="mensagem-erro">
+
+            <p>{{ erro }}</p>
+
+            <a href="/login" class="btn-login">
+                Ir para Login
+            </a>
+
+        </div>
+
+    {% endif %}
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="nome"
+            placeholder="Nome da empresa"
+            required>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required>
+
+        <input
+            type="password"
+            name="senha"
+            placeholder="Senha"
+            required>
+
+        <button type="submit">
+            Cadastrar
+        </button>
+
+    </form>
+</div>
+{% endblock %}

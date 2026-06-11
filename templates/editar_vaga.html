@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Vaga{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/vagas.css') }}">
+
+
+<a href="/vaga/{{ vaga[0] }}" class="btn-voltar">
+    ← Voltar para detalhes
+</a>
+
+<h1>Editar Vaga</h1>
+
+<form method="POST">
+
+    <label>Nome da empresa</label>
+    <input
+        type="text"
+        name="empresa"
+        value="{{ vaga[1] }}"
+        required>
+
+    <label>Título da vaga</label>
+    <input
+        type="text"
+        name="titulo"
+        value="{{ vaga[2] }}"
+        required>
+
+    <label>Descrição da vaga</label>
+    <textarea
+        name="descricao"
+        required>{{ vaga[3] }}</textarea>
+
+    <label>Requisitos</label>
+    <textarea
+        name="requisitos"
+        required>{{ vaga[4] }}</textarea>
+
+    <label>Contato da empresa</label>
+    <input
+        type="text"
+        name="contato"
+        value="{{ vaga[5] }}"
+        required>
+
+    <button type="submit">
+        Salvar alterações
+    </button>
+
+</form>
+
+{% endblock %}

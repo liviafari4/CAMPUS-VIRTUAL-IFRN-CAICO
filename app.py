@@ -1,15 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
-app = Flask(__name__)
 
+app = Flask(__name__)
+app.secret_key = 'campusvirtualifrn'
 
 def conectar_banco():
     return sqlite3.connect('vagas.db')
 
-
 def criar_tabelas():
     banco = conectar_banco()
     cursor = banco.cursor()
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS empresas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
+            senha TEXT NOT NULL
+        )
+    ''')
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS vagas (
@@ -36,7 +45,6 @@ def criar_tabelas():
 
     banco.commit()
     banco.close()
-
 
 criar_tabelas()
 
@@ -72,6 +80,76 @@ def curso_vestuario():
 def curso_eletro():
     return render_template('curso_eletrotecnica.html')
 
+@app.route('/cadastro-empresa', methods=['GET', 'POST'])
+def cadastro_empresa():
+
+    if request.method == 'POST':
+        nome = request.form['nome']
+        email = request.form['email']
+        senha = request.form['senha']
+        banco = conectar_banco()
+        cursor = banco.cursor()
+
+        cursor.execute(
+            'SELECT * FROM empresas WHERE email = ?',
+            (email,)
+        )
+
+        empresa_existente = cursor.fetchone()
+
+        if empresa_existente:
+
+            banco.close()
+
+            return render_template(
+                'cadastro_empresa.html',
+                erro='Este e-mail já está cadastrado.'
+            )
+
+        cursor.execute('''
+            INSERT INTO empresas
+            (nome, email, senha)
+            VALUES (?, ?, ?)
+        ''', (nome, email, senha))
+
+        banco.commit()
+        banco.close()
+
+        return redirect('/login')
+    return render_template('cadastro_empresa.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+
+    if request.method == 'POST':
+        email = request.form['email']
+        senha = request.form['senha']
+        banco = conectar_banco()
+        cursor = banco.cursor()
+
+        cursor.execute('''
+            SELECT * FROM empresas
+            WHERE email = ? AND senha = ?
+        ''', (email, senha))
+
+        empresa = cursor.fetchone()
+        banco.close()
+
+        if empresa:
+            session['empresa_id'] = empresa[0]
+            session['empresa_nome'] = empresa[1]
+
+            return redirect('/vagas')
+        return render_template(
+            'login.html',
+            erro='Empresa não encontrada. Faça seu cadastro primeiro.'
+        )
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
 
 @app.route('/vagas')
 def vagas():
@@ -173,6 +251,9 @@ def excluir_vaga(id):
 
 @app.route('/cadastrar-vaga', methods=['GET', 'POST'])
 def cadastrar_vaga():
+    if 'empresa_id' not in session:
+        return redirect('/login')
+    
     if request.method == 'POST':
         empresa = request.form['empresa']
         titulo = request.form['titulo']

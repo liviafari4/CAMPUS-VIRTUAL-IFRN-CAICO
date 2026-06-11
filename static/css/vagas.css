@@ -51,10 +51,55 @@
 
 .btn-curriculo {
     display: inline-block;
-    margin-top: 10px;
     background: #2f9e41;
     color: white;
-    padding: 10px 16px;
     border-radius: 8px;
     text-decoration: none;
+}
+
+.acoes-vaga {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn-curriculo,
+.btn-editar,
+.btn-excluir {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-curriculo {
+    background-color: #0b7a3e;
+    color: white;
+}
+
+.btn-curriculo:hover {
+    background-color: #095f30;
+    transform: translateY(-2px);
+}
+
+.btn-editar {
+    background-color: #0b7a3e;
+    color: #ffffff;
+}
+
+.btn-editar:hover {
+    background-color: #095f30;
+    transform: translateY(-2px);
+}
+.btn-excluir {
+    background-color: #0b7a3e;
+    color: white;
+}
+
+.btn-excluir:hover {
+    background-color: #095f30;
+    transform: translateY(-2px);
 }
