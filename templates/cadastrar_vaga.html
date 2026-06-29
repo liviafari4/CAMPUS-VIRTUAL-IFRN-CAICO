@@ -16,8 +16,8 @@
 
     <form method="POST">
 
-        <label>Nome da empresa</label>
-        <input type="text" name="empresa" required>
+        <label>Empresa</label>
+        <input type="text" value="{{ empresa }}" readonly>
 
         <label>Título da vaga</label>
         <input type="text" name="titulo" required>
@@ -30,6 +30,12 @@
 
         <label>Contato da empresa</label>
         <input type="text" name="contato" required>
+
+        <label>Data de início</label>
+        <input type="date" name="data_inicio" value="{{ hoje }}" required>
+
+        <label>Data de término</label>
+        <input type="date" name="data_fim">
 
         <button type="submit">Cadastrar vaga</button>
 

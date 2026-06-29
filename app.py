@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
+from datetime import date
 
 app = Flask(__name__)
 app.secret_key = 'campusvirtualifrn'
@@ -27,9 +28,11 @@ def criar_tabelas():
             titulo TEXT NOT NULL,
             descricao TEXT NOT NULL,
             requisitos TEXT NOT NULL,
-            contato TEXT NOT NULL
-        )
-    ''')
+            contato TEXT NOT NULL,
+            data_inicio TEXT NOT NULL,
+            data_fim TEXT NOT NULL
+    )
+''')
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS curriculos (
@@ -251,30 +254,45 @@ def excluir_vaga(id):
 
 @app.route('/cadastrar-vaga', methods=['GET', 'POST'])
 def cadastrar_vaga():
+
     if 'empresa_id' not in session:
         return redirect('/login')
-    
+
     if request.method == 'POST':
-        empresa = request.form['empresa']
+        empresa = session['empresa_nome']
         titulo = request.form['titulo']
         descricao = request.form['descricao']
         requisitos = request.form['requisitos']
         contato = request.form['contato']
-
+        data_inicio = request.form['data_inicio']
+        data_fim = request.form['data_fim']
         banco = conectar_banco()
         cursor = banco.cursor()
 
         cursor.execute('''
-            INSERT INTO vagas (empresa, titulo, descricao, requisitos, contato)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (empresa, titulo, descricao, requisitos, contato))
-
+            INSERT INTO vagas
+            (empresa, titulo, descricao, requisitos, contato, data_inicio, data_fim)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            empresa,
+            titulo,
+            descricao,
+            requisitos,
+            contato,
+            data_inicio,
+            data_fim
+        ))
+        
         banco.commit()
         banco.close()
-
         return redirect(url_for('vagas'))
+    hoje = date.today().isoformat()
 
-    return render_template('cadastrar_vaga.html')
+    return render_template(
+        'cadastrar_vaga.html',
+        hoje=hoje,
+        empresa=session['empresa_nome']
+    )
 
 
 @app.route('/enviar-curriculo/<int:vaga_id>', methods=['GET', 'POST'])

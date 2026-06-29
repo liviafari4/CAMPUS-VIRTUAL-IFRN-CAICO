@@ -74,23 +74,6 @@
     </div>
 </div>
 
-
-<script>
-function filtrarCursos() {
-    let input = document.getElementById("busca").value.toLowerCase();
-    let cursos = document.querySelectorAll(".curso");
-
-    cursos.forEach(curso => {
-        let texto = curso.innerText.toLowerCase();
-        curso.style.display = texto.includes(input) ? "block" : "none";
-    });
-}
-
-function favoritar() {
-    alert("Curso adicionado aos favoritos!");
-}
-</script>
-
 </body>
 </html>
 {% endblock %}
