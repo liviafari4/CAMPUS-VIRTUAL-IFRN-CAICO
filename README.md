@@ -1,4 +1,5 @@
 # Campus Virtual IFRN Caicó
+
 TODO
 
 ## Como executar
@@ -7,20 +8,34 @@ TODO
     ```
     git clone link_para_este_repositorio
     ```
-1. Crie um ambiente virtual Python.
+
+2. Crie um ambiente virtual Python.
     ```
     python3 -m venv envcampus
     ```
-1. Ative o ambiente virtual:
-    1. No Linux:
-        ```
-        source envcampus/bin/activate
-        ```
-1. Instale todos os requerimentos.
+
+3. Ative o ambiente virtual.
+
+    No Linux:
+
+    ```
+    source envcampus/bin/activate
+    ```
+
+4. Instale todos os requerimentos.
     ```
     pip install -r requirements.txt
     ```
-1. Execute o flask.
+
+5. Execute o Flask.
     ```
     flask run --debug
     ```
+
+## Banco de Dados
+
+O sistema utiliza um banco de dados SQLite (`vagas.db`).
+
+Na primeira execução do projeto, o arquivo `vagas.db` é criado automaticamente pela função `criar_tabelas()` presente no arquivo `app.py`.
+
+Como esse arquivo é gerado localmente e armazena apenas os dados de execução da aplicação, ele não faz parte do repositório e está configurado para ser ignorado pelo Git através do `.gitignore`.

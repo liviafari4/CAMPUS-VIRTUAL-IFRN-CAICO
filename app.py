@@ -59,9 +59,6 @@ def home():
 def sobre():
     return render_template('sobre.html')
 
-@app.route('/cursos')
-def cursos():
-    return render_template('cursos.html')
 
 @app.route('/campus')
 def campus():
@@ -166,25 +163,6 @@ def vagas():
 
     return render_template('vagas.html', vagas=vagas)
 
-@app.route('/vaga/<int:id>')
-def detalhes_vaga(id):
-
-    banco = conectar_banco()
-    cursor = banco.cursor()
-
-    cursor.execute(
-        'SELECT * FROM vagas WHERE id = ?',
-        (id,)
-    )
-
-    vaga = cursor.fetchone()
-
-    banco.close()
-
-    return render_template(
-        'detalhes_vaga.html',
-        vaga=vaga
-    )
 
 @app.route('/editar-vaga/<int:id>', methods=['GET', 'POST'])
 def editar_vaga(id):
@@ -295,28 +273,6 @@ def cadastrar_vaga():
     )
 
 
-@app.route('/enviar-curriculo/<int:vaga_id>', methods=['GET', 'POST'])
-def enviar_curriculo(vaga_id):
-    if request.method == 'POST':
-        nome = request.form['nome']
-        email = request.form['email']
-        curso = request.form['curso']
-        experiencia = request.form['experiencia']
-
-        banco = conectar_banco()
-        cursor = banco.cursor()
-
-        cursor.execute('''
-            INSERT INTO curriculos (nome, email, curso, experiencia, vaga_id)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (nome, email, curso, experiencia, vaga_id))
-
-        banco.commit()
-        banco.close()
-
-        return redirect(url_for('vagas'))
-
-    return render_template('enviar_curriculo.html', vaga_id=vaga_id)
 
     
 if __name__ == '__main__':
