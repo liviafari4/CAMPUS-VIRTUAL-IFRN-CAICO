@@ -59,7 +59,6 @@ def home():
 def sobre():
     return render_template('sobre.html')
 
-
 @app.route('/campus')
 def campus():
     return render_template('campus.html')
@@ -155,7 +154,6 @@ def logout():
 def vagas():
     banco = conectar_banco()
     cursor = banco.cursor()
-
     cursor.execute('SELECT * FROM vagas')
     vagas = cursor.fetchall()
 
@@ -271,9 +269,6 @@ def cadastrar_vaga():
         hoje=hoje,
         empresa=session['empresa_nome']
     )
-
-
-
     
 if __name__ == '__main__':
     app.run(debug=True)
