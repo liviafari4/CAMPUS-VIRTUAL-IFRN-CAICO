@@ -3,51 +3,114 @@
 {% block title %}Editar Vaga{% endblock %}
 
 {% block content %}
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/vagas.css') }}">
 
-
-<a href="/vaga/{{ vaga[0] }}" class="btn-voltar">
-    ← Voltar para detalhes
+<a href="/vagas" class="btn-voltar">
+    ← Voltar para vagas
 </a>
 
 <h1>Editar Vaga</h1>
 
 <form method="POST">
 
-    <label>Nome da empresa</label>
-    <input
-        type="text"
-        name="empresa"
-        value="{{ vaga[1] }}"
-        required>
+```
+<label>Nome da empresa</label>
 
-    <label>Título da vaga</label>
-    <input
-        type="text"
-        name="titulo"
-        value="{{ vaga[2] }}"
-        required>
+<input
+    type="text"
+    name="empresa"
+    value="{{ vaga[1] }}"
+    required
+>
 
-    <label>Descrição da vaga</label>
-    <textarea
-        name="descricao"
-        required>{{ vaga[3] }}</textarea>
 
-    <label>Requisitos</label>
-    <textarea
-        name="requisitos"
-        required>{{ vaga[4] }}</textarea>
+<label>Curso relacionado</label>
 
-    <label>Contato da empresa</label>
-    <input
-        type="text"
-        name="contato"
-        value="{{ vaga[5] }}"
-        required>
+<select name="curso" required>
 
-    <button type="submit">
-        Salvar alterações
-    </button>
+    <option
+        value="Informática para Internet"
+        {% if vaga[8] == 'Informática para Internet' %}
+            selected
+        {% endif %}
+    >
+        Informática para Internet
+    </option>
+
+
+    <option
+        value="Têxtil"
+        {% if vaga[8] == 'Têxtil' %}
+            selected
+        {% endif %}
+    >
+        Têxtil
+    </option>
+
+
+    <option
+        value="Vestuário"
+        {% if vaga[8] == 'Vestuário' %}
+            selected
+        {% endif %}
+    >
+        Vestuário
+    </option>
+
+
+    <option
+        value="Eletrotécnica"
+        {% if vaga[8] == 'Eletrotécnica' %}
+            selected
+        {% endif %}
+    >
+        Eletrotécnica
+    </option>
+
+</select>
+
+
+<label>Título da vaga</label>
+
+<input
+    type="text"
+    name="titulo"
+    value="{{ vaga[2] }}"
+    required
+>
+
+
+<label>Descrição da vaga</label>
+
+<textarea
+    name="descricao"
+    required
+>{{ vaga[3] }}</textarea>
+
+
+<label>Requisitos</label>
+
+<textarea
+    name="requisitos"
+    required
+>{{ vaga[4] }}</textarea>
+
+
+<label>Contato da empresa</label>
+
+<input
+    type="text"
+    name="contato"
+    value="{{ vaga[5] }}"
+    required
+>
+
+
+<button type="submit">
+    Salvar alterações
+</button>
+```
 
 </form>
 

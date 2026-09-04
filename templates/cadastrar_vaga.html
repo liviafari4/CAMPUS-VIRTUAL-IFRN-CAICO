@@ -16,12 +16,35 @@
 
     <form method="POST">
 
-      
         <label>Título da vaga</label>
         <input type="text" name="titulo" required>
 
         <label>Descrição da vaga</label>
         <textarea name="descricao" required></textarea>
+                
+        <label>Curso relacionado</label>
+        <select name="curso" required>
+
+            <option value="" disabled selected>
+                Selecione o curso
+            </option>
+
+            <option value="Informática para Internet">
+                Informática para Internet
+            </option>
+
+            <option value="Têxtil">
+                Têxtil
+            </option>
+
+            <option value="Vestuário">
+                Vestuário
+            </option>
+
+            <option value="Eletrotécnica">
+                Eletrotécnica
+            </option>
+        </select>
 
         <label>Requisitos</label>
         <textarea name="requisitos" required></textarea>

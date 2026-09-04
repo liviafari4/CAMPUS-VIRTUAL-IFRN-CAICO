@@ -60,6 +60,48 @@ allowfullscreen>
 
 </section>
 
+<section class="bloco vagas-curso">
+
+    <h2>Vagas relacionadas ao curso</h2>
+
+    {% for vaga in vagas %}
+
+        <div class="vaga-card">
+            <h3>
+                {{ vaga['titulo'] }}
+            </h3>
+
+            <p>
+                <strong>Empresa:</strong>
+                {{ vaga['empresa'] }}
+            </p>
+
+            <p>
+                <strong>Descrição:</strong>
+                {{ vaga['descricao'] }}
+            </p>
+
+            <p>
+                <strong>Requisitos:</strong>
+                {{ vaga['requisitos'] }}
+            </p>
+
+            <p>
+                <strong>Contato:</strong>
+                {{ vaga['contato'] }}
+            </p>
+        </div>
+
+    {% else %}
+
+        <p>
+            Ainda não há vagas relacionadas a este curso.
+        </p>
+
+    {% endfor %}
+
+</section>
+
 </main>
 
 {% endblock %}

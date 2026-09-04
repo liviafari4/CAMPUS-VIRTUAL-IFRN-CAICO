@@ -8,6 +8,22 @@ app.secret_key = 'campusvirtualifrn'
 def conectar_banco():
     return sqlite3.connect('vagas.db')
 
+def vagas_do_curso(curso):
+
+    banco = conectar_banco()
+    cursor = banco.cursor()
+
+    cursor.execute('''
+        SELECT * FROM vagas
+        WHERE curso = ?
+    ''', (curso,))
+
+    vagas = cursor.fetchall()
+
+    banco.close()
+
+    return vagas
+
 def criar_tabelas():
     banco = conectar_banco()
     cursor = banco.cursor()
@@ -30,7 +46,8 @@ def criar_tabelas():
             requisitos TEXT NOT NULL,
             contato TEXT NOT NULL,
             data_inicio TEXT NOT NULL,
-            data_fim TEXT NOT NULL
+            data_fim TEXT NOT NULL,
+            curso TEXT NOT NULL DEFAULT
     )
 ''')
 
@@ -65,19 +82,43 @@ def campus():
 
 @app.route('/curso/informatica')
 def curso_informatica():
-    return render_template('curso_informatica.html')
+
+    vagas = vagas_do_curso('Informática para Internet')
+
+    return render_template(
+        'curso_informatica.html',
+        vagas=vagas
+    )
 
 @app.route('/curso/textil')
 def curso_textil():
-    return render_template('curso_textil.html')
+
+    vagas = vagas_do_curso('Têxtil')
+
+    return render_template(
+        'curso_textil.html',
+        vagas=vagas
+    )
 
 @app.route('/curso/vestuario')
 def curso_vestuario():
-    return render_template('curso_vestuario.html')
+
+    vagas = vagas_do_curso('Vestuário')
+
+    return render_template(
+        'curso_vestuario.html',
+        vagas=vagas
+    )
 
 @app.route('/curso/eletrotecnica')
 def curso_eletro():
-    return render_template('curso_eletrotecnica.html')
+
+    vagas = vagas_do_curso('Eletrotécnica')
+
+    return render_template(
+        'curso_eletrotecnica.html',
+        vagas=vagas
+    )
 
 @app.route('/cadastro-empresa', methods=['GET', 'POST'])
 def cadastro_empresa():
@@ -173,6 +214,7 @@ def editar_vaga(id):
         empresa = request.form['empresa']
         titulo = request.form['titulo']
         descricao = request.form['descricao']
+        curso = request.form['curso']
         requisitos = request.form['requisitos']
         contato = request.form['contato']
 
@@ -181,6 +223,7 @@ def editar_vaga(id):
             SET empresa = ?,
                 titulo = ?,
                 descricao = ?,
+                curso = ?,
                 requisitos = ?,
                 contato = ?
             WHERE id = ?
@@ -188,6 +231,7 @@ def editar_vaga(id):
             empresa,
             titulo,
             descricao,
+            curso,
             requisitos,
             contato,
             id
@@ -242,12 +286,13 @@ def cadastrar_vaga():
         contato = request.form['contato']
         data_inicio = request.form['data_inicio']
         data_fim = request.form['data_fim']
+        curso = request.form['curso']
         banco = conectar_banco()
         cursor = banco.cursor()
 
         cursor.execute('''
             INSERT INTO vagas
-            (empresa, titulo, descricao, requisitos, contato, data_inicio, data_fim)
+            (empresa, titulo, descricao, requisitos, contato, data_inicio, data_fim, cursos)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         ''', (
             empresa,
@@ -257,6 +302,7 @@ def cadastrar_vaga():
             contato,
             data_inicio,
             data_fim
+            curso
         ))
         
         banco.commit()
