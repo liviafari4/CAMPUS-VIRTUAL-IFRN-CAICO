@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 from datetime import date
@@ -5,11 +6,12 @@ from datetime import date
 app = Flask(__name__)
 app.secret_key = 'campusvirtualifrn'
 
+
 def conectar_banco():
     return sqlite3.connect('vagas.db')
 
-def vagas_do_curso(curso):
 
+def vagas_do_curso(curso):
     banco = conectar_banco()
     cursor = banco.cursor()
 
@@ -19,10 +21,10 @@ def vagas_do_curso(curso):
     ''', (curso,))
 
     vagas = cursor.fetchall()
-
     banco.close()
 
     return vagas
+
 
 def criar_tabelas():
     banco = conectar_banco()
@@ -47,9 +49,9 @@ def criar_tabelas():
             contato TEXT NOT NULL,
             data_inicio TEXT NOT NULL,
             data_fim TEXT NOT NULL,
-            curso TEXT NOT NULL DEFAULT
-    )
-''')
+            curso TEXT NOT NULL
+        )
+    ''')
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS curriculos (
@@ -66,23 +68,27 @@ def criar_tabelas():
     banco.commit()
     banco.close()
 
+
 criar_tabelas()
+
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
+
 @app.route('/sobre')
 def sobre():
     return render_template('sobre.html')
+
 
 @app.route('/campus')
 def campus():
     return render_template('campus.html')
 
+
 @app.route('/curso/informatica')
 def curso_informatica():
-
     vagas = vagas_do_curso('Informática para Internet')
 
     return render_template(
@@ -90,9 +96,9 @@ def curso_informatica():
         vagas=vagas
     )
 
+
 @app.route('/curso/textil')
 def curso_textil():
-
     vagas = vagas_do_curso('Têxtil')
 
     return render_template(
@@ -100,9 +106,9 @@ def curso_textil():
         vagas=vagas
     )
 
+
 @app.route('/curso/vestuario')
 def curso_vestuario():
-
     vagas = vagas_do_curso('Vestuário')
 
     return render_template(
@@ -110,15 +116,16 @@ def curso_vestuario():
         vagas=vagas
     )
 
+
 @app.route('/curso/eletrotecnica')
 def curso_eletro():
-
     vagas = vagas_do_curso('Eletrotécnica')
 
     return render_template(
         'curso_eletrotecnica.html',
         vagas=vagas
     )
+
 
 @app.route('/cadastro-empresa', methods=['GET', 'POST'])
 def cadastro_empresa():
@@ -127,6 +134,7 @@ def cadastro_empresa():
         nome = request.form['nome']
         email = request.form['email']
         senha = request.form['senha']
+
         banco = conectar_banco()
         cursor = banco.cursor()
 
@@ -138,7 +146,6 @@ def cadastro_empresa():
         empresa_existente = cursor.fetchone()
 
         if empresa_existente:
-
             banco.close()
 
             return render_template(
@@ -156,7 +163,9 @@ def cadastro_empresa():
         banco.close()
 
         return redirect('/login')
+
     return render_template('cadastro_empresa.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -164,6 +173,7 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         senha = request.form['senha']
+
         banco = conectar_banco()
         cursor = banco.cursor()
 
@@ -180,21 +190,26 @@ def login():
             session['empresa_nome'] = empresa[1]
 
             return redirect('/vagas')
+
         return render_template(
             'login.html',
             erro='Empresa não encontrada. Faça seu cadastro primeiro.'
         )
+
     return render_template('login.html')
+
 
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/')
 
+
 @app.route('/vagas')
 def vagas():
     banco = conectar_banco()
     cursor = banco.cursor()
+
     cursor.execute('SELECT * FROM vagas')
     vagas = cursor.fetchall()
 
@@ -256,6 +271,7 @@ def editar_vaga(id):
         vaga=vaga
     )
 
+
 @app.route('/excluir-vaga/<int:id>')
 def excluir_vaga(id):
 
@@ -272,6 +288,7 @@ def excluir_vaga(id):
 
     return redirect(url_for('vagas'))
 
+
 @app.route('/cadastrar-vaga', methods=['GET', 'POST'])
 def cadastrar_vaga():
 
@@ -279,6 +296,7 @@ def cadastrar_vaga():
         return redirect('/login')
 
     if request.method == 'POST':
+
         empresa = session['empresa_nome']
         titulo = request.form['titulo']
         descricao = request.form['descricao']
@@ -287,13 +305,14 @@ def cadastrar_vaga():
         data_inicio = request.form['data_inicio']
         data_fim = request.form['data_fim']
         curso = request.form['curso']
+
         banco = conectar_banco()
         cursor = banco.cursor()
 
         cursor.execute('''
             INSERT INTO vagas
-            (empresa, titulo, descricao, requisitos, contato, data_inicio, data_fim, cursos)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            (empresa, titulo, descricao, requisitos, contato, data_inicio, data_fim, curso)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             empresa,
             titulo,
@@ -301,13 +320,15 @@ def cadastrar_vaga():
             requisitos,
             contato,
             data_inicio,
-            data_fim
+            data_fim,
             curso
         ))
-        
+
         banco.commit()
         banco.close()
+
         return redirect(url_for('vagas'))
+
     hoje = date.today().isoformat()
 
     return render_template(
@@ -315,6 +336,8 @@ def cadastrar_vaga():
         hoje=hoje,
         empresa=session['empresa_nome']
     )
-    
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
