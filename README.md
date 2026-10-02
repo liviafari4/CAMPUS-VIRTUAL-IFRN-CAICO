@@ -11,10 +11,16 @@ TODO
 
 2. Crie um ambiente virtual Python.
     ```
-    python3 -m venv envcampus
+    python -m venv env
     ```
 
 3. Ative o ambiente virtual.
+
+    No Windows:
+    
+    ```
+    env\Scripts\activate
+    ```
 
     No Linux:
 
