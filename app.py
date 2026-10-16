@@ -10,9 +10,9 @@ app.secret_key = 'campusvirtualifrn'
 def conectar_banco():
     return sqlite3.connect('vagas.db')
 
-
 def vagas_do_curso(curso):
     banco = conectar_banco()
+    banco.row_factory = sqlite3.Row
     cursor = banco.cursor()
 
     cursor.execute('''
@@ -24,7 +24,6 @@ def vagas_do_curso(curso):
     banco.close()
 
     return vagas
-
 
 def criar_tabelas():
     banco = conectar_banco()
