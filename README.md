@@ -1,7 +1,5 @@
 # Campus Virtual IFRN Caicó
 
-TODO
-
 ## Como executar
 
 1. Clone este repositório.
