@@ -1,0 +1,79 @@
+@media (max-width: 600px) {
+
+    .container-empresa,
+    .formulario {
+        width: calc(100% - 24px);
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .container-empresa input,
+    .formulario input,
+    .formulario textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+
+
+    .pagina-vagas,
+    .pagina-curso {
+        width: 100%;
+        padding: 12px;
+        margin: 15px auto;
+    }
+
+    .hero-vagas {
+        padding: 35px 15px;
+    }
+
+    .hero-vagas h1 {
+        font-size: 26px;
+    }
+
+    .vaga-card,
+    .bloco {
+        padding: 18px;
+    }
+
+    .acoes-vaga {
+        flex-direction: column;
+    }
+
+    .acoes-vaga a {
+        text-align: center;
+        width: 100%;
+    }
+
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .bloco h2 {
+        font-size: 21px;
+    }
+
+    .info,
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    iframe {
+        height: 250px !important;
+    }
+
+
+    .btn-voltar {
+        left: 10px;
+        top: 15px;
+    }
+
+    .destaques {
+        padding: 35px 18px;
+        grid-template-columns: 1fr;
+    }
+
+    .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+}

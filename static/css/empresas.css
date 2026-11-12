@@ -62,3 +62,22 @@
 .btn-login:hover {
     background: #008844;
 }
+
+.btn-cadastrar {
+    display: inline-block;
+    margin-bottom: 17px;
+    color: #006633;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+    color: #00994d;
+}

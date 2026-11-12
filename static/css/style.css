@@ -124,7 +124,6 @@ body {
     margin-top: 15px;
 }
 
-/* conteudo abaixo */
 .conteudo {
     background-color: #ffffff;
     padding: 70px 25px;
@@ -276,4 +275,205 @@ body {
 
 .btn-voltar:hover {
     background-color: #2f9e41;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+
+@media (max-width: 900px) {
+
+    .topo {
+        position: relative;
+        top: 0;
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #006633;
+    }
+
+    .logo-area {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .logo-area img {
+        width: 220px;
+    }
+
+    .logo-area h2 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu {
+        margin: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .conteudo {
+        margin: 30px 20px;
+        padding: 40px 25px;
+    }
+
+    .intro,
+    .vida-content {
+        flex-direction: column;
+    }
+
+    .vida-content img {
+        width: 100%;
+    }
+
+    .video-campus iframe,
+    .video-diretor iframe {
+        height: 350px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .topo {
+        padding: 15px;
+    }
+
+    .logo-area img {
+        width: 180px;
+    }
+
+    .logo-area h2 {
+        font-size: 15px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin: 0;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .capa {
+        height: 65vh;
+        min-height: 400px;
+        background-attachment: scroll;
+        padding: 20px;
+    }
+
+    .capa-text h1 {
+        font-size: 26px;
+    }
+
+    .capa-text p {
+        font-size: 16px;
+    }
+
+    .destaque-borda {
+        padding: 15px 20px;
+    }
+
+    .conteudo {
+        margin: 20px 12px;
+        padding: 30px 18px;
+    }
+
+    .conteudo h2 {
+        font-size: 23px;
+    }
+
+    .secao-cursos {
+        padding: 40px 15px;
+    }
+
+    .secao-cursos h2 {
+        font-size: 25px;
+    }
+
+    .cards {
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .mapa {
+        margin: 30px 15px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1,
+    .hero-content h1 {
+        font-size: 26px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .intro,
+    .espacos,
+    .galeria,
+    .vida-campus,
+    .depoimentos {
+        padding: 40px 18px;
+    }
+
+    .titulo-section h2 {
+        font-size: 25px;
+    }
+
+    .video-campus iframe,
+    .video-diretor iframe {
+        height: 230px;
+    }
+
+    .final {
+        padding: 50px 20px;
+    }
+
+    .final h2 {
+        font-size: 25px;
+    }
+
+    .links-rodape a {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    .btn-voltar {
+        margin: 12px;
+    }
+
+    button,
+    .btn {
+        max-width: 100%;
+    }
 }

@@ -15,10 +15,13 @@ def vagas_do_curso(curso):
     banco.row_factory = sqlite3.Row
     cursor = banco.cursor()
 
+    hoje = date.today().isoformat()
+
     cursor.execute('''
         SELECT * FROM vagas
         WHERE curso = ?
-    ''', (curso,))
+        AND data_fim >= ?
+    ''', (curso, hoje))
 
     vagas = cursor.fetchall()
     banco.close()
@@ -49,18 +52,6 @@ def criar_tabelas():
             data_inicio TEXT NOT NULL,
             data_fim TEXT NOT NULL,
             curso TEXT NOT NULL
-        )
-    ''')
-
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS curriculos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome TEXT NOT NULL,
-            email TEXT NOT NULL,
-            curso TEXT NOT NULL,
-            experiencia TEXT NOT NULL,
-            vaga_id INTEGER,
-            FOREIGN KEY (vaga_id) REFERENCES vagas(id)
         )
     ''')
 
