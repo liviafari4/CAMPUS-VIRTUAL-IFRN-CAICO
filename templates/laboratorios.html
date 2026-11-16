@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/campus.css') }}">
+
+<section class="titulo-section">
+    <h2>Laboratórios</h2>
+    <p>Conheça os ambientes de aprendizagem do IFRN Campus Caicó.</p>
+</section>
+
+<a href="/campus" class="btn-voltar">← Voltar</a>
+
+<div class="grid-galeria">
+    <!-- informática -->
+    <img src="{{ url_for('static', filename='img/galeria/labinfo1.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/labinfo2.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/labinfo3.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/labinfo4.png') }}" alt="">
+    <!-- eletrotécnica -->
+    <img src="{{ url_for('static', filename='img/galeria/eletro1.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/eletro2.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/eletro3.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/eletro4.png') }}" alt="">
+    <!-- vestuário -->
+    <img src="{{ url_for('static', filename='img/galeria/vestu1.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/vestu2.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/vestu3.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/vestu4.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/vestu5.png') }}" alt="">
+    <!-- têxtil -->
+    <img src="{{ url_for('static', filename='img/galeria/textil1.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/textil2.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/textil3.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/textil4.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/textil5.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/textil6.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/textil7.png') }}" alt="">
+
+</div>
+
+{% endblock %}

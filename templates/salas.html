@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/campus.css') }}">
+
+<section class="titulo-section">
+    <h2>Salas de Aula</h2>
+    <p>Conheça os ambientes de aprendizagem do IFRN Campus Caicó.</p>
+</section>
+
+<a href="/campus" class="btn-voltar">← Voltar</a>
+
+<div class="grid-galeria">
+
+    <a href="{{ url_for('static', filename='img/galeria/sala1.png') }}" target="_blank">
+        <img src="{{ url_for('static', filename='img/galeria/sala1.png') }}" alt="">
+    </a>
+    <a href="{{ url_for('static', filename='img/galeria/sala2.png') }}" target="_blank">
+        <img src="{{ url_for('static', filename='img/galeria/sala2.png') }}" alt="">
+    </a>
+    
+</div>
+
+{% endblock %}

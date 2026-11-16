@@ -58,68 +58,68 @@
 
     <div class="cards">
         <div class="card">
-            <img src="{{ url_for('static', filename='/img/campus.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='img/galeria/sala1.png') }}" alt="">
             <div class="card-content">
                 <h3>Salas de Aula</h3>
                 <p>
                     Ambientes modernos e climatizados.
                 </p>
-                <button>Ver mais</button>
+                <a href="/salas" class="btn">Ver mais</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="{{ url_for('static', filename='/img/campus.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='/img/galeria/biblioteca5.png') }}" alt="">
             <div class="card-content">
                 <h3>Biblioteca</h3>
                 <p>
                     Espaço para estudo, leitura e pesquisa.
                 </p>
-                <button>Ver mais</button>
+                <a href="/biblioteca" class="btn">Ver mais</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='img/galeria/labinfo1.png') }}" alt="">
             <div class="card-content">
                 <h3>Laboratórios</h3>
                 <p>
                     Estrutura tecnológica para aprendizagem prática.
                 </p>
-                <button>Ver mais</button>
+                <a href="/laboratorios" class="btn">Ver mais</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='img/galeria/auditorio1.png') }}" alt="">
             <div class="card-content">
                 <h3>Auditório</h3>
                 <p>
                     Eventos, palestras e apresentações acadêmicas.
                 </p>
-                <button>Ver mais</button>
+                <a href="/auditorio" class="btn">Ver mais</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='img/galeria/vivencia1.png') }}" alt="">
             <div class="card-content">
                 <h3>Área de Convivência</h3>
                 <p>
                     Espaço social para alunos e servidores.
                 </p>
-                <button>Ver mais</button>
+                <a href="/convivencia" class="btn">Ver mais</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
+            <img src="{{ url_for('static', filename='img/galeria/quadra1.png') }}" alt="">
             <div class="card-content">
                 <h3>Quadra</h3>
                 <p>
                     Área esportiva e atividades recreativas.
                 </p>
-                <button>Ver mais</button>
+                <a href="/quadra" class="btn">Ver mais</a>
             </div>
         </div>
     </div>
@@ -133,12 +133,18 @@
 
     <div class="grid-galeria">
 
-        <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
-        <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
-        <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
-        <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
-        <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
-        <img src="{{ url_for('static', filename='img/campus.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus1.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus2.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus3.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus4.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus5.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus6.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus7.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus8.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus9.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus10.jpeg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus11.jpeg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus13.jpeg') }}" alt="">
 
     </div>
 
@@ -171,7 +177,7 @@
 
     <div class="vida-content">
 
-        <img src="{{ url_for('static', filename='img/alunos.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='img/galeria/campus11.jpeg') }}" alt="">
 
         <div class="texto">
 
@@ -195,20 +201,22 @@
     </div>
 
     <div class="depoimentos-grid">
+        
         <div class="dep-card">
+            <img src="{{ url_for('static', filename='img/kessya.png') }}">
             <p>
                 “O IFRN mudou minha vida acadêmica.”
             </p>
-            <span>Aluno do Campus</span>
+            <span>Aluna do Campus - Kessya</span>
         </div>
 
         <div class="dep-card">
-
+            <img src="{{ url_for('static', filename='img/leonardo.jpeg') }}">
             <p>
                 “Estrutura incrível e professores excelentes.”
             </p>
 
-            <span>Ex-aluna</span>
+            <span>Ex-aluno - Leonardo</span>
         </div>
     </div>
 </section>

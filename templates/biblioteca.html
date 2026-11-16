@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/campus.css') }}">
+
+<section class="titulo-section">
+    <h2>Biblioteca</h2>
+    <p>Conheça os ambientes de aprendizagem do IFRN Campus Caicó.</p>
+</section>
+
+<a href="/campus" class="btn-voltar">← Voltar</a>
+
+<div class="grid-galeria">
+
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca1.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca2.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca3.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca4.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca5.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca6.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca7.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca8.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca9.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca10.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca11.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca12.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca13.png') }}" alt="">
+    <img src="{{ url_for('static', filename='img/galeria/biblioteca14.png') }}" alt="">
+</div>
+
+{% endblock %}

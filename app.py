@@ -96,7 +96,6 @@ def curso_textil():
         vagas=vagas
     )
 
-
 @app.route('/curso/vestuario')
 def curso_vestuario():
     vagas = vagas_do_curso('Vestuário')
@@ -327,6 +326,30 @@ def cadastrar_vaga():
         empresa=session['empresa_nome']
     )
 
+@app.route('/salas')
+def salas():
+    return render_template('salas.html')
+
+@app.route('/biblioteca')
+def biblioteca():
+    return render_template('biblioteca.html')
+
+@app.route('/laboratorios')
+def laboratorios():
+    return render_template('laboratorios.html')
+
+@app.route('/auditorio')
+def auditorio():
+    return render_template('auditorio.html')
+
+@app.route('/convivencia')
+def convivencia():
+    return render_template('convivencia.html')
+
+@app.route('/quadra')
+def quadra():
+    return render_template('quadra.html')
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
